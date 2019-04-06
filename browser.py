@@ -19,9 +19,31 @@ class App(QMainWindow):
         self.setWindowIcon(QIcon("browser_12.png"))
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.browser=QWebEngineView()
+        self.browser.setStyleSheet("""
+        .QWebEngineView{
+            border: 20px solid black;
+            font -size:100px;
+            border-radius: 10px;
+            background-color: rgb(0, 255, 255);
+            width:100%;
+            }
+        """)
         self.browser.setUrl(QUrl("https://www.google.com"))
         self.setCentralWidget(self.browser)
         navtb=QToolBar("navigation")
+        navtb.setStyleSheet("""
+        .QToolBar {
+            margin:25px;
+            border-radius: 10px;
+            font-family:Verdana;
+            font-size:30 px;
+            background-color: rgb(160, 160, 160);
+            }
+        .QLineEdit{
+            font-size:30 px;
+            font-family:Verdana;
+            }
+        """)
         navtb.setIconSize(QSize(40, 40))
         self.addToolBar(navtb)
         back_btn=QAction(QIcon("arrow2.png"),"Back", self)
